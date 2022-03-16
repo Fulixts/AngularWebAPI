@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="card-header">
+
+        <button class="Get" id="http-btn" (click)="getTodoItem()">Get</button>
+        <button class="Post" id="http-btn" (click)="openModal()">Post</button>
+        <button class="Put" id="http-btn">Put</button>
+
+    </div>
+    <div class="card-body">
+        <div class="row" id="row-1">
+            <div class="col-md-2">
+                <div class="col-md-4">
+                    <!-- <input class="input" type="text" [(ngModel)]="listFilter" /> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="todoItems.length">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>CreatedAt</th>
+                        <th>FinishedAt</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todoItem of todoItemfiltered">
+                        <td>{{todoItem.id}}</td>
+                        <td>{{todoItem.description}}</td>
+                        <td>{{todoItem.createdAt}}</td>
+                        <td>{{todoItem.finishedAt}}</td>
+                        <td>{{todoItem.status}}</td>
+                        <td>
+                            <button class="Delete" id="http-btn">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

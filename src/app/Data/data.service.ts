@@ -1,0 +1,43 @@
+import { ITodoItem } from './../todo-item/TodoItem';
+import { Injectable, Pipe } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { throwError, Observable } from 'rxjs';
+import { catchError, tap} from 'rxjs/operators';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ModalComponent } from '../modal/modal.component';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+  private apiUrl = 'https://localhost:44301/api/TodoItems';
+
+  constructor(private http: HttpClient, public modalService: BsModalService){}
+
+  getTodoItems(): Observable<ITodoItem[]>{
+    return this.http.get<ITodoItem[]>(this.apiUrl).pipe(
+    tap(data => console.log('All', JSON.stringify(data))),
+    catchError(this.handleError));
+  }
+
+  handleError(err: HttpErrorResponse) {
+    let errorMsg = '';
+
+    if (err.error instanceof ErrorEvent) {
+      errorMsg = `An error Ocurred: ${err.error.message}`
+    }else{
+      errorMsg = `Server Returned code: ${err.status}, error message: ${err.message}`
+    }
+    console.error(errorMsg);
+    return throwError(errorMsg);
+  }
+  showModal(){
+    const bsModal: BsModalRef = this.modalService.show(ModalComponent);
+  }
+  
+  showConfirm(todoItem: ITodoItem[]){
+    const bsModal: BsModalRef = this.modalService.show(ModalComponent);
+    bsModal.content.todoPost = todoItem;
+  }
+}

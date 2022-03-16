@@ -1,0 +1,22 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+#http-btn {
+    display: flex;
+    margin: 5px;
+    background-color: rgb(96, 96, 255);
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.card-header {
+    align-self: center;
+    background-color: rgb(193, 245, 114);
+    text-align: center;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    outline-style: double;
+}
