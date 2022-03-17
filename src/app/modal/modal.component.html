@@ -1,19 +1,18 @@
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+<div class="modal-dialog">
 
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <input type="text" name=" " id="">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onCancel()">Cancel</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onCofirm()">Post</button>
-            </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Post</h4>
         </div>
-
+        <div class="modal-body">
+            <textarea name="message" id="message" rows="6" cols="60">
+                {{modalText}}
+                </textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="modal-btn" class="btn btn-default" data-dismiss="modal" (click)="onCancel()">Cancel</button>
+            <button type="button" id="modal-btn" class="btn btn-default" data-dismiss="modal" (click)="onCofirm()">Post</button>
+        </div>
     </div>
+
 </div>

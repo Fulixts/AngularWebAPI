@@ -1,3 +1,4 @@
+import { BsModalService } from 'ngx-bootstrap/modal';
 import {  HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,7 @@ import { ModalComponent } from './modal/modal.component';
 @NgModule({
   declarations: [AppComponent, TodoItemComponent, ModalComponent],
   imports: [BrowserModule, HttpClientModule],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

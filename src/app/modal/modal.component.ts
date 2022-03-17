@@ -12,6 +12,8 @@ export class ModalComponent implements OnInit {
 
   constructor(public bsModal: BsModalRef, public data: DataService) { }
 
+  modalText: string = '{"id": 0, "description": "string", "createdAt": "2022-03-16T23:28:36", "finishedAt": "2022-03-16T23:28:36","status": 0}';
+
   @Input() todoPost: ITodoItem[];
 
   ngOnInit(): void {
@@ -22,6 +24,5 @@ export class ModalComponent implements OnInit {
   }
   onCancel(){
     this.bsModal.hide();
-
   }
 }

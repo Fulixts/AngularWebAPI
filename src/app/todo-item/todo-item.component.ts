@@ -45,6 +45,15 @@ export class TodoItemComponent implements OnInit {
       error: err => this.errorMsg = err
     });
   }
+  deleteTodoItem(id:number){
+    this.data.deleteTodoItem(id).subscribe(
+      (data: void) => {
+        let index: number = this.todoItems.findIndex(todo => todo.id === id);
+        this.todoItems.splice(index, 1);
+      },
+      (err: any) => console.log(err)
+    );
+  }
   openModal(){
     this.data.modalService.show(ModalComponent);
   }

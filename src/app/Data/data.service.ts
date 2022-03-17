@@ -21,6 +21,10 @@ export class DataService {
     catchError(this.handleError));
   }
 
+  deleteTodoItem(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
   handleError(err: HttpErrorResponse) {
     let errorMsg = '';
 
@@ -32,10 +36,7 @@ export class DataService {
     console.error(errorMsg);
     return throwError(errorMsg);
   }
-  showModal(){
-    const bsModal: BsModalRef = this.modalService.show(ModalComponent);
-  }
-  
+
   showConfirm(todoItem: ITodoItem[]){
     const bsModal: BsModalRef = this.modalService.show(ModalComponent);
     bsModal.content.todoPost = todoItem;

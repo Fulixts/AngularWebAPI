@@ -1,10 +1,7 @@
 <div class="card">
-    <div class="card-header">
-
+    <div class="card-header" id="btns">
         <button class="Get" id="http-btn" (click)="getTodoItem()">Get</button>
         <button class="Post" id="http-btn" (click)="openModal()">Post</button>
-        <button class="Put" id="http-btn">Put</button>
-
     </div>
     <div class="card-body">
         <div class="row" id="row-1">
@@ -37,7 +34,10 @@
                         <td>{{todoItem.finishedAt}}</td>
                         <td>{{todoItem.status}}</td>
                         <td>
-                            <button class="Delete" id="http-btn">Delete</button>
+                            <div id="btns">
+                                <button class="Put" id="http-btn">Edit</button>
+                                <button class="Delete" id="http-btn" (click)="deleteTodoItem(todoItem.id)"> Delete</button>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
