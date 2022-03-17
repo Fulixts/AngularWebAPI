@@ -27,12 +27,11 @@ button {
 
 #modal-btn:hover,
 #modal-btn:focus {
-    --color: #00ff33;
-    --hover: #4dff5ce0;
+    --color: #ff882c;
+    --hover: #ff6f00;
 }
 
 .modal-content {
-    border: 10px black;
     display: inline-table;
     background-color: white;
     width: 1em;

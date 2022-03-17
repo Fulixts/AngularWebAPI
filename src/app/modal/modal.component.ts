@@ -14,13 +14,15 @@ export class ModalComponent implements OnInit {
 
   modalText: string = '{"id": 0, "description": "string", "createdAt": "2022-03-16T23:28:36", "finishedAt": "2022-03-16T23:28:36","status": 0}';
 
-  @Input() todoPost: ITodoItem[];
-
   ngOnInit(): void {
   }
 
-  onCofirm(){
+  onCofirm(value: string){
+    alert(value);
+    this.data.PostTodoItem(JSON.parse(value)).subscribe(
+      data => console.log(data, 'response')
 
+    );
   }
   onCancel(){
     this.bsModal.hide();

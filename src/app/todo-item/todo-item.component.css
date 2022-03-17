@@ -1,24 +1,112 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-#http-btn {
-    display: flex;
-    margin: 5px;
-    background-color: rgb(96, 96, 255);
-    border: 1px solid black;
-    border-radius: 3px;
-}
+                    /* Imports */
 
-#btns {
-    height: 40px;
-    width: 120px;
-    align-self: center;
-    background-color: rgb(193, 245, 114);
-    text-align: center;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    outline-style: double;
-}
+                    @import "~bootstrap/dist/css/bootstrap.min.css";
+                    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+                    /* Styles */
+
+                    button {
+                        background: none;
+                        border: 2px solid;
+                        font: inherit;
+                        line-height: 0.5;
+                        margin: 0.2em;
+                        margin-top: 15px;
+                        color: var(--color);
+                        border-radius: 3px;
+                        transition: 0.25s;
+                        padding: 1em 2em;
+                    }
+
+                    #http-btn-get:hover,
+                    #http-btn-get:focus,
+                    #http-btn-post:hover,
+                    #http-btn-post:focus,
+                    #http-btn-edit:hover,
+                    #http-btn-edit:focus,
+                    #http-btn-delete:hover,
+                    #http-btn-delete:focus {
+                        display: flex;
+                        margin: 5px;
+                        border-radius: 3px;
+                        box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+                        transform: translateY(-0.25em);
+                    }
+
+                    thead {
+                        background-color: rgba(255, 255, 255, 0.3);
+                        border-radius: 5px;
+                        text-align: center;
+                        font-family: 'Roboto', sans-serif;
+                    }
+
+                    #btns {
+                        height: 140px;
+                        width: 100%;
+                        background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+                        align-self: center;
+                        text-align: center;
+                        display: inline-flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-content: center;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    #btns-two {
+                        align-self: center;
+                        text-align: center;
+                        display: inline-flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-content: center;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .table-responsive,
+                    tr {
+                        border-radius: 3px;
+                        text-align: center;
+                        font-family: 'Roboto', sans-serif;
+                    }
+
+                    td {
+                        padding: 25%;
+                        text-align: center;
+                        margin-top: 20px;
+                    }
+
+                    #gradient {
+                        width: 100%;
+                        height: 800px;
+                        padding: 0px;
+                        margin: 0px;
+                        background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+                        background: linear-gradient(to right, #25c481, #25b7c4);
+                        font-family: 'Roboto', sans-serif;
+                    }
+
+                    #http-btn-get:hover,
+                    #http-btn-get:focus {
+                        --color: #0048ff;
+                        --hover: #00c3ff;
+                    }
+
+                    #http-btn-post:hover,
+                    #http-btn-post:focus {
+                        --color: #00ff33;
+                        --hover: #4dff5ce0;
+                    }
+
+                    #http-btn-edit:hover,
+                    #http-btn-edit:focus {
+                        --color: #ff882c;
+                        --hover: #ff6f00;
+                    }
+
+                    #http-btn-delete:hover,
+                    #http-btn-delete:focus {
+                        --color: #ff0000;
+                        --hover: #ff3232;
+                    }

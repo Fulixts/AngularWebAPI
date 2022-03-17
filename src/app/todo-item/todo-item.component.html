@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card" id="gradient">
     <div class="card-header" id="btns">
-        <button class="Get" id="http-btn" (click)="getTodoItem()">Get</button>
-        <button class="Post" id="http-btn" (click)="openModal()">Post</button>
+        <button class="Get" id="http-btn-get" [disabled]="clicked" (click)="getTodoItem()">Get</button>
+        <button class="Post" id="http-btn-post" [disabled]="clicked" (click)="openModal()">Post</button>
     </div>
     <div class="card-body">
         <div class="row" id="row-1">
@@ -24,6 +24,7 @@
                         <th>CreatedAt</th>
                         <th>FinishedAt</th>
                         <th>Status</th>
+                        <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,9 +35,9 @@
                         <td>{{todoItem.finishedAt}}</td>
                         <td>{{todoItem.status}}</td>
                         <td>
-                            <div id="btns">
-                                <button class="Put" id="http-btn">Edit</button>
-                                <button class="Delete" id="http-btn" (click)="deleteTodoItem(todoItem.id)"> Delete</button>
+                            <div id="btns-two">
+                                <button class="Put" id="http-btn-edit" [disabled]="clicked" (click)="openUpdateModal(todoItem.id)">Edit</button>
+                                <button class="Delete" id="http-btn-delete" [disabled]="clicked" (click)="deleteTodoItem(todoItem.id)"> Delete</button>
                             </div>
                         </td>
                     </tr>

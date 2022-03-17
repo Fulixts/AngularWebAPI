@@ -1,10 +1,11 @@
 import { ITodoItem } from './../todo-item/TodoItem';
 import { Injectable, Pipe } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap} from 'rxjs/operators';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ModalComponent } from '../modal/modal.component';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 
 @Injectable({
@@ -19,6 +20,27 @@ export class DataService {
     return this.http.get<ITodoItem[]>(this.apiUrl).pipe(
     tap(data => console.log('All', JSON.stringify(data))),
     catchError(this.handleError));
+  }
+  getTodoItemsById(id: number): Observable<ITodoItem[]>{
+    return this.http.get<ITodoItem[]>(`${this.apiUrl}/${id}`).pipe(
+    tap(data => console.log('All', JSON.stringify(data))),
+    catchError(this.handleError));
+  }
+
+  PostTodoItem(todoItem: ITodoItem): Observable<ITodoItem>{
+    return this.http.post<ITodoItem>(this.apiUrl, todoItem, {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json'
+      })
+    });
+  }
+
+  updateTodoItem(todoId: number, TodoItem: ITodoItem): Observable<void>{
+    return this.http.put<void>(`${this.apiUrl}/${todoId}`, TodoItem, {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json'
+      })
+    });
   }
 
   deleteTodoItem(id: number): Observable<void>{
@@ -40,5 +62,6 @@ export class DataService {
   showConfirm(todoItem: ITodoItem[]){
     const bsModal: BsModalRef = this.modalService.show(ModalComponent);
     bsModal.content.todoPost = todoItem;
+
   }
 }

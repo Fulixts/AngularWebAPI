@@ -6,9 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { ModalComponent } from './modal/modal.component';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoItemComponent, ModalComponent],
+  declarations: [AppComponent, TodoItemComponent, ModalComponent, UpdateModalComponent],
   imports: [BrowserModule, HttpClientModule],
   providers: [BsModalService],
   bootstrap: [AppComponent]

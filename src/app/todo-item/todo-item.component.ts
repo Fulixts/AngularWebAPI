@@ -3,6 +3,7 @@ import { DataService } from '../Data/data.service';
 import { ITodoItem } from './TodoItem';
 import { Subscription } from 'rxjs';
 import { ModalComponent } from '../modal/modal.component';
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
 
 
 @Component({
@@ -18,13 +19,14 @@ export class TodoItemComponent implements OnInit {
   todoItemfiltered: ITodoItem[] = [];
   errorMsg: string = '';
   sub!: Subscription;
+  clicked: boolean = false;
   private _listFilter: string = '';
 
-  get listFilter(): string{
+  public get listFilter(): string{
     return this._listFilter;
   }
 
-  set listFilter(value : string) {
+  public set listFilter(value : string) {
     this._listFilter = value;
     console.log('In Setter: ', value);
   }
@@ -45,6 +47,7 @@ export class TodoItemComponent implements OnInit {
       error: err => this.errorMsg = err
     });
   }
+
   deleteTodoItem(id:number){
     this.data.deleteTodoItem(id).subscribe(
       (data: void) => {
@@ -54,6 +57,13 @@ export class TodoItemComponent implements OnInit {
       (err: any) => console.log(err)
     );
   }
+
+  openUpdateModal(_todoId){
+    const initialState = {todoId: _todoId}
+
+    this.data.modalService.show(UpdateModalComponent, Object.assign({}, this.data.modalService.config, {class: 'modal-sm', initialState}));
+  }
+
   openModal(){
     this.data.modalService.show(ModalComponent);
   }
