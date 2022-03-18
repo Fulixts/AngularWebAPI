@@ -1,5 +1,8 @@
 <div class="card" id="gradient">
     <div class="card-header" id="btns">
+        <div class="search">
+            <input type="search" id="search-box" placeholder="Filter by Id" [(ngModel)]="listFilter">
+        </div>
         <button class="Get" id="http-btn-get" [disabled]="clicked" (click)="getTodoItem()">Get</button>
         <button class="Post" id="http-btn-post" [disabled]="clicked" (click)="openModal()">Post</button>
     </div>
@@ -7,7 +10,6 @@
         <div class="row" id="row-1">
             <div class="col-md-2">
                 <div class="col-md-4">
-                    <!-- <input class="input" type="text" [(ngModel)]="listFilter" /> -->
                 </div>
             </div>
         </div>

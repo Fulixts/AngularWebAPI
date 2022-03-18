@@ -18,11 +18,11 @@ export class ModalComponent implements OnInit {
   }
 
   onCofirm(value: string){
-    alert(value);
+    alert(`POST Completed: ${value}`);
     this.data.PostTodoItem(JSON.parse(value)).subscribe(
       data => console.log(data, 'response')
-
     );
+    this.bsModal.hide();
   }
   onCancel(){
     this.bsModal.hide();

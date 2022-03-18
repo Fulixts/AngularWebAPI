@@ -32,9 +32,15 @@ button {
 }
 
 .modal-content {
-    border: 10px black;
     display: inline-table;
-    background-color: white;
+    background-color: rgb(56, 52, 52);
+    color: #00ff33;
     width: 1em;
     height: 1em;
+}
+
+.modal-dialog {
+    background-color: rgb(56, 52, 52);
+    width: 50em;
+    height: 25em;
 }

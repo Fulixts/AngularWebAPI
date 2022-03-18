@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../Data/data.service';
 import { ITodoItem } from './TodoItem';
 import { Subscription } from 'rxjs';
@@ -13,13 +13,14 @@ import { UpdateModalComponent } from '../update-modal/update-modal.component';
 })
 export class TodoItemComponent implements OnInit {
 
+
   constructor(private data: DataService) { }
 
   todoItems: ITodoItem[] = [];
   todoItemfiltered: ITodoItem[] = [];
   errorMsg: string = '';
   sub!: Subscription;
-  clicked: boolean = false;
+  @Input() clicked: boolean = false;
   private _listFilter: string = '';
 
   public get listFilter(): string{
@@ -28,7 +29,23 @@ export class TodoItemComponent implements OnInit {
 
   public set listFilter(value : string) {
     this._listFilter = value;
+
+    this.todoItemfiltered = this.filteredById(value);
     console.log('In Setter: ', value);
+
+  }
+
+  filteredById(value: string): ITodoItem[] {
+    value = value.toLocaleLowerCase();
+    return this.todoItems.filter((todo: ITodoItem) =>
+     todo.id.toString().toLocaleLowerCase().includes(value)
+     )
+  }
+  filteredByDescription(value: string): ITodoItem[] {
+    value = value.toLocaleLowerCase();
+    return this.todoItems.filter((todo: ITodoItem) =>
+     todo.description.toLocaleLowerCase().includes(value)
+     )
   }
 
   ngOnInit(): void {

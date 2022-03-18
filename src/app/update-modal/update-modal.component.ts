@@ -26,16 +26,12 @@ export class UpdateModalComponent implements OnInit {
 
   }
 
-  update(id: number){
-
-  }
-
   onCofirm(value: string){
-    alert(value);
+    alert(`${value} : Edited!`);
     this.data.updateTodoItem(this.todoId, JSON.parse(value)).subscribe(
       data => console.log(data, 'response')
-
     );
+    this.bsModal.hide();
   }
 
   onCancel(){
